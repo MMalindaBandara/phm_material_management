@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const sqlite3 = require('sqlite3').verbose();
 const { Pool } = require('pg');
 const path = require('path');
 const fs = require('fs');
@@ -70,6 +69,7 @@ if (isProd) {
     }
   };
 } else {
+  const sqlite3 = require('sqlite3').verbose();
   const dbPath = path.join(__dirname, 'database.db');
   db = new sqlite3.Database(dbPath);
 
